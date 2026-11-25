@@ -1,12 +1,20 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Home } from './home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [Home],
+  template: `<main>
+    <header class="brand-name"> 
+      <img class="brand-logo" src="/home.svg" alt="logo" aria-hidden="true"  width="25px"/>
+      &nbsp;<span>Home</span>
+    </header>
+    <section class="content">
+      <app-home />
+    </section>
+  </main> `,
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('my-app');
+  title = 'homes';
 }
