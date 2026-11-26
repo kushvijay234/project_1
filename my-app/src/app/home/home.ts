@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HousingLocation } from '../housing-location/housing-location';
 import { HousingLocationInfo } from '../housinglocation';
+import { HousingService } from '../housing-service';
 
 @Component({
   selector: 'app-home',
@@ -21,48 +22,11 @@ import { HousingLocationInfo } from '../housinglocation';
   styleUrl: './home.css',
 })
 export class Home {
-  readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
+  housingLocations: HousingLocationInfo[] = [];
+  housingService: HousingService = inject(HousingService);
 
-  housingLocations: HousingLocationInfo[] = [
-    {
-      id: 1,
-      name: 'Cozy Mountain Retreat',
-      city: 'Aspen',
-      state: 'CO',
-      photo: `${this.baseUrl}/example-house.jpg`,
-      availableUnits: 4,
-      wifi: true,
-      laundry: true,
-    },
-    {
-      id: 2,
-      name: 'Sunny City Apartment',
-      city: 'Denver',
-      state: 'CO',
-      photo: `${this.baseUrl}/example-house.jpg`,
-      availableUnits: 2,
-      wifi: true,
-      laundry: false,
-    },
-    {
-      id: 3,
-      name: 'Quiet Lakeside Home',
-      city: 'Boulder',
-      state: 'CO',
-      photo: `${this.baseUrl}/example-house.jpg`,
-      availableUnits: 3,
-      wifi: false,
-      laundry: true,
-    },
-    {
-      id: 4,
-      name: 'Family Garden House',
-      city: 'Aurora',
-      state: 'CO',
-      photo: `${this.baseUrl}/example-house.jpg`,
-      availableUnits: 5,
-      wifi: true,
-      laundry: true,
-    },
-  ];
+  constructor() {
+    this.housingLocations = this.housingService.getAllHousingLocations();
+  }
+
 }

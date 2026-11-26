@@ -6,6 +6,11 @@
     --shadow-color: #e8e8e8;
 }
 
+ p, h2 {
+    padding: 0px; 
+    margin: 0px;  
+} 
+
 button.primary {
     padding: 10px;
     border: solid 1px var(--primary-color);
