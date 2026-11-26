@@ -68,4 +68,14 @@ export class HousingService {
   getHousingLocationByID(id: number): HousingLocationInfo | undefined {
     return this.housingLocationsList.find((housingLocation) => housingLocation.id === id);
   }
+
+  /* 
+  form submit 
+  */
+ submitApplication(firstName: string, lastName: string, email: string) {
+  console.log(
+          `Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`,
+  );
+ }
 }
+
