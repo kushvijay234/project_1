@@ -1,0 +1,39 @@
+.brand-name {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+  background-color: var(--brand-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.brand-logo {
+  filter: brightness(0) invert(1);
+}
+
+.brand-name a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand-name a:hover {
+  color: #ffffff;
+}
+
+.brand-name a:focus-visible {
+  outline: 2px solid #396d4b;
+  outline-offset: 4px;
+}
