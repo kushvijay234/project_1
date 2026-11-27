@@ -1,1 +1,64 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="login-logo">✦</div>
+      <h2>Welcome Back</h2>
+      <p>Please enter your details to sign in.</p>
+    </div>
+
+    <form (submit)="onSubmit($event)">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div class="input-wrapper">
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            [formField]="loginForm.email"
+          />
+          @if(loginForm.email().invalid() && loginForm.email().touched()){
+              <div class="error">
+                @for (error of loginForm.email().errors(); track error.kind) {
+                  <span>{{error.message}}</span>
+                }
+              </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            [formField]="loginForm.password"
+          />
+          @if (loginForm.password().invalid() && loginForm.password().touched()) {
+            <div class="error">
+              @for (error of loginForm.password().errors(); track error.kind) {
+                <span>{{error.message}}</span>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-label">
+          <input type="checkbox" [formField]="loginForm.rememberMe" />
+          <span>Remember me</span>
+        </label>
+
+        <a href="/forgot-password">Forgot password?</a>
+      </div>
+
+      <button type="submit" [disabled]="loginForm().invalid()" class="login-btn">Log In <span>→</span></button>
+    </form>
+
+    <div class="login-footer">
+      <p>Don't have an account? <a href="/register">Sign up</a></p>
+    </div>
+  </div>
+</div>
