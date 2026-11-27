@@ -5,12 +5,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterLink, RouterOutlet],
   template: `<main>
-    <a [routerLink]="['/']">
-      <header class="brand-name">
-        <img class="brand-logo" src="/home.svg" alt="logo" aria-hidden="true" width="25px" />
-        &nbsp;<span>Home</span>
-      </header>
-    </a>
+    <header class="brand-name">
+      <a [routerLink]="['/']">
+        <img class="brand-logo" src="/home.svg" alt="logo" width="25" />
+      </a>
+      <a [routerLink]="['/login']">Login</a>
+    </header>
+
     <section class="content">
       <router-outlet />
     </section>
